@@ -1,0 +1,24 @@
+{
+  "name": "12-employee-tracker",
+  "version": "1.0.0",
+  "description": "Command-line interface for interacting with employee database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddoherty6/12-Employee-Tracker.git"
+  },
+  "author": "Dan Doherty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddoherty6/12-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/ddoherty6/12-Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.0",
+    "mysql2": "^2.3.3"
+  }
+}
