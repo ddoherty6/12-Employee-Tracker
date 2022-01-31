@@ -1,11 +1,3 @@
-//const db = require('../db/connection.js');
-// const DB = require('../db/index.js');
-// const db = new DB;
-// //const fetch = require('node-fetch');
-// import fetch from 'node-fetch';
-
-//const res = require('express/lib/response');
- 
 const db = require('../db/connection.js');
 const cTable = require('console.table');
 
@@ -24,6 +16,7 @@ const displayDepartments = function() {
     });
 }
 
+// add a department
 const addDepartment = function(name) {    
     const sql = `INSERT INTO department (name) VALUES (?)`;
 
@@ -35,6 +28,7 @@ const addDepartment = function(name) {
     });
 }
 
+// show all roles
 const displayRoles = function() {
     const sql = `SELECT role.title, role.id AS role_id, department.name AS department, role.salary FROM role JOIN department ON role.department_id=department.id`;
 
@@ -49,6 +43,7 @@ const displayRoles = function() {
     });
 }
 
+// add a role
 const addRole = function(info) {    
     const sql = `INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`;
 
@@ -60,6 +55,7 @@ const addRole = function(info) {
     });
 }
 
+// show all employees
 const displayEmployees = function() {
     const sql = `SELECT employee.id, CONCAT(employee.first_name, ' ', employee.last_name) AS name, role.title, department.name as department, role.salary, CONCAT(e2.first_name, ' ', e2.last_name) AS manager FROM employee JOIN role ON employee.role_id=role.id JOIN department ON role.department_id=department.id JOIN employee e2 ON e2.id=employee.manager_id`;
 
@@ -74,27 +70,14 @@ const displayEmployees = function() {
     });
 }
 
+// get a list of all employees for inquirer selection screen
 const getEmployeeNames = async function() {
     const sql = `SELECT employee.id AS value, CONCAT(employee.first_name, ' ', employee.last_name) AS name FROM employee`;
-    
-    return db.promise().query(sql); //, (err, rows) => {
-    //     if (err) {
-    //         console.warn(err);
-    //         return;
-    //     }
-        
-    //     for (let i = 0; i < rows.length; i++) {
-    //         names.push(rows[i].name);
-    //     }
-        //console.log(names);
-        //return names;
-    //});
-
-    //console.log(names);
-
-    
+    // grabbing employee IDs also as "value" so that user choice returns employee id in answer hash
+    return db.promise().query(sql);
 }
 
+// add employee
 const addEmployee = function(info) {    
     const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`;
 
@@ -108,6 +91,7 @@ const addEmployee = function(info) {
 
 const updateEmployeeRole = function(info) {    
     const sql = `UPDATE employee SET ? WHERE ?`;
+    // info contains objects that are entered into literal ? => "role_id = x" and "id = y" 
 
     db.query(sql, info, (err, rows) => {
         if (err) {

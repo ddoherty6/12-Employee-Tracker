@@ -1,8 +1,8 @@
 const inquirer = require('inquirer');
 const { displayDepartments, addDepartment,
-    displayRoles, addRole, 
-    displayEmployees, getEmployeeNames, addEmployee, updateEmployeeRole } = require('./display.js');
-
+        displayRoles, addRole, 
+        displayEmployees, getEmployeeNames, addEmployee, updateEmployeeRole } = require('./display.js');
+// user questions for inquirer...
 const mainMenu = [
     {
         type: 'list',
@@ -137,7 +137,7 @@ const updateEmployee = [
 ]
 
 
-
+// actions to take based on userInputStart result
 const parseUserInput = async function(input) {
     if (input === 'View all departments') {
         displayDepartments();
@@ -173,16 +173,7 @@ const parseUserInput = async function(input) {
         });
     } else if (input === 'Update an employee role') {
         const employeeNamesObj = await getEmployeeNames();
-        //console.log(employeeNamesObj);
-        const employeeNames = employeeNamesObj[0];
-        let names = Array();
-        for (let i = 0; i < employeeNames.length; i++) {
-            names.push(employeeNames[i].name);
-            //selections.push(employeenames[i].id + " " + employeeNames[i].name);
-        }
-        //console.log(employeeNames);
-        // console.log(names);
-        //console.log(defineEmployeeList(names));
+        const employeeNames = employeeNamesObj[0]; // shedding unnecesary layer in object
         
         inquirer.prompt(defineEmployeeList(employeeNames))
         .then(employee_id => {
