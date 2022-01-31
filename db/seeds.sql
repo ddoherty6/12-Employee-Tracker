@@ -17,22 +17,22 @@ VALUES
 ('Database Engineer', '75000', '3'),
 ('Building Coordinator', '65000', '4'),
 ('Lead Security', '90000', '4'),
-('CSO', '500000', '5'),
+('CFO', '500000', '5'),
 ('Lead Accountant', '175000', '5'),
 ('Senior Consultant', '250000', '6'),
 ('Junior Consultant', '80000', '6');
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
-('Roberto', 'Carlos', '1', '1'),
-('Vladimir', 'Gurerro', '2', '1'),
-('Upton', 'Sinclair', '3', '1'),
+('Roberto', 'Carlos', '1', null),
+('Vladimir', 'Guerrero', '2', '1'),
+('Upton', 'Sinclair', '3', null),
 ('Thomas', 'Paine', '4', '3'),
 ('Phillip', 'Dick', '5', '1'),
 ('Emily', 'Dickinson', '6', '5'),
 ('Charles', 'Dickens', '7', '1'),
 ('Zdeno', 'Chara', '8', '7'),
-('Zlatan', 'Ibrahimovic', '9', '9'),
+('Zlatan', 'Ibrahimovic', '9', null),
 ('Luca', 'Modric', '10', '9'),
 ('Milan', 'Lucic', '11', '9'),
 ('James', 'Milner', '12', '11');

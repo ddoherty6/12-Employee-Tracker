@@ -57,7 +57,7 @@ const addRole = function(info) {
 
 // show all employees
 const displayEmployees = function() {
-    const sql = `SELECT employee.id, CONCAT(employee.first_name, ' ', employee.last_name) AS name, role.title, department.name as department, role.salary, CONCAT(e2.first_name, ' ', e2.last_name) AS manager FROM employee JOIN role ON employee.role_id=role.id JOIN department ON role.department_id=department.id JOIN employee e2 ON e2.id=employee.manager_id`;
+    const sql = `SELECT employee.id, CONCAT(employee.first_name, ' ', employee.last_name) AS name, role.title, department.name as department, role.salary, CONCAT(e2.first_name, ' ', e2.last_name) AS manager FROM employee JOIN role ON employee.role_id=role.id JOIN department ON role.department_id=department.id LEFT JOIN employee e2 ON e2.id=employee.manager_id`;
 
     db.query(sql, (err, rows) => {
         if (err) {
