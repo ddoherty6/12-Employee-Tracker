@@ -155,7 +155,6 @@ const parseUserInput = async function(input) {
     } else if (input === 'Add a role') {
         inquirer.prompt(newRole)
         .then(res => {
-            console.log(res);
             const info = [res.name, res.salary, res.department_id];
             addRole(info);
             userInputStart();
@@ -166,7 +165,6 @@ const parseUserInput = async function(input) {
     } else if (input === 'Add an employee') {
         inquirer.prompt(newEmployee)
         .then(res => {
-            console.log(res);
             const info = [res.first_name, res.last_name, res.role_id, res.manager_id];
             addEmployee(info);
             userInputStart();
