@@ -21,3 +21,32 @@ VALUES
 ('Lead Accountant', '175000', '5'),
 ('Senior Consultant', '250000', '6'),
 ('Junior Consultant', '80000', '6');
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES
+('Roberto', 'Carlos', '1', '1'),
+('Vladimir', 'Gurerro', '2', '1'),
+('Upton', 'Sinclair', '3', '1'),
+('Thomas', 'Paine', '4', '3'),
+('Phillip', 'Dick', '5', '1'),
+('Emily', 'Dickinson', '6', '5'),
+('Charles', 'Dickens', '7', '1'),
+('Zdeno', 'Chara', '8', '7'),
+('Zlatan', 'Ibrahimovic', '9', '9'),
+('Luca', 'Modric', '10', '9'),
+('Milan', 'Lucic', '11', '9'),
+('James', 'Milner', '12', '11');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
